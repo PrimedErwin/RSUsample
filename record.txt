@@ -1,0 +1,16 @@
+Change settings to the following each time generated with CUBEMX
+
+cpp:
+TC32169.c
+layerni.c
+frame.c
+basic.c
+main.c
+gpio.c
+rtc.c
+
+compiler:
+default version 6, cpp 14
+
+optimization:
+-O2
