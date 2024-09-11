@@ -113,7 +113,7 @@ uint16_t tc_length16;
 
 
 macctl_up OBU_macctl = LPDU_exist;
-Macs OBU_mac = { 0x88, 0x88, 0x88, 0x88 };//test mac
+Macs OBU_mac = { 0xFF, 0xFF, 0xFF, 0xFF };//test mac
 #ifdef OBU_VERSION
 Commu_Stage OBU_stage = RSU_BST;
 #endif
@@ -337,7 +337,7 @@ int main(void)
 	uint8_t* len122 = new uint8_t[2]{ 0x00, 0x01 };
 	uint8_t* len152 = new uint8_t[2]{ 0x00, 0x01 };
 	uint8_t* len192 = new uint8_t[2]{ 0x00, 0x01 };
-	_BST cbst(BaconID, unix, 0x99, 0x99,
+	_BST cbst(BaconID, unix, 0x00, 0x1A,
 		len22, len122, len152, len192);
 	delete[] BaconID;
 	delete[] len22;
@@ -403,6 +403,10 @@ int main(void)
 					//TC_write_fifo(tx_buf, 3 + 9 + rand_len);
 					if (RSU_stage == RSU_BST)
 					{
+						OBU_mac.macadd[0] = 0xFF;
+						OBU_mac.macadd[1] = 0xFF;
+						OBU_mac.macadd[2] = 0xFF;
+						OBU_mac.macadd[3] = 0xFF;
 						unixTime_setFrame(unix, &hrtc);
 						cbst.update_unix(unix);
 						cbst.msg_construct(tx_buf);
@@ -499,6 +503,10 @@ int main(void)
 				if (RSU_stage == RSU_BST)
 				{
 					//recved VST, info store
+					OBU_mac.macadd[0] = mac_address[0];
+					OBU_mac.macadd[1] = mac_address[1];
+					OBU_mac.macadd[2] = mac_address[2];
+					OBU_mac.macadd[3] = mac_address[3];
 					pc_data[0] = 0xB2;
 					pc_data[1] = mac_address[0];
 					pc_data[2] = mac_address[1];
