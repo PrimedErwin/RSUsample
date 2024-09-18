@@ -1,5 +1,6 @@
 Drivers
 MDK-ARM
+.obsidian
 *.orig
 *.filters
 *.sln

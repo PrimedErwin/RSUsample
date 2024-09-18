@@ -1,1 +1,0 @@
-## This is RSU version for F439 on chip level.
