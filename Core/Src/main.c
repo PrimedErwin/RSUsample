@@ -112,7 +112,7 @@ uint16_t tc_length16;
 #endif // TC_RECV_TEST
 
 
-macctl_up OBU_macctl = LPDU_exist;
+macctl_up OBU_macctl = 0x50;
 Macs OBU_mac = { 0xFF, 0xFF, 0xFF, 0xFF };//test mac
 #ifdef OBU_VERSION
 Commu_Stage OBU_stage = RSU_BST;
@@ -332,12 +332,12 @@ int main(void)
 	unixTime_setRTC(unix, &hrtc);
 #endif // RTC_TEST
 
-	uint8_t* BaconID = new uint8_t[4]{ 0xAA,0xBB,0xCC,0xDD };
+	uint8_t* BaconID = new uint8_t[4]{ 0x02,0x00,0x00,0x7A };
 	uint8_t* len22 = new uint8_t[2]{ 0x00, 0x01 };
 	uint8_t* len122 = new uint8_t[2]{ 0x00, 0x01 };
 	uint8_t* len152 = new uint8_t[2]{ 0x00, 0x01 };
 	uint8_t* len192 = new uint8_t[2]{ 0x00, 0x01 };
-	_BST cbst(BaconID, unix, 0x00, 0x1A,
+	_BST cbst(BaconID, unix, 0x01, 0x1A,
 		len22, len122, len152, len192);
 	delete[] BaconID;
 	delete[] len22;

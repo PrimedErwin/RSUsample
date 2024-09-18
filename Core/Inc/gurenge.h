@@ -43,7 +43,7 @@ class _BST
 		profile_integer = profileInteger;
 		mandApplications = 1;
 		option_indicator2 = 0x41;
-		option_indicator3 = 0x57;
+		option_indicator3 = 0x87;
 		pretreatPara = 0x29;
 		option_indicator4 = 0;
 		sysInfo = sysinfo;
